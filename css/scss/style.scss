@@ -287,7 +287,18 @@ hr { border-color: #3D97AD; }
 
 
 /*--------------- header ---------------*/
-
+header.page-header {
+    nav {
+        ul.main-menu {
+            li {
+                display: inline-block;
+                a {
+                    
+                }
+            }
+        }
+    }
+}
 
 /*--------------- main ---------------*/
 main {}
