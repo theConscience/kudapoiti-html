@@ -1,0 +1,233 @@
+@charset "UTF-8";
+/*---------- ╨б╤В╤А╤Г╨║╤В╤Г╤А╨░ ╨║╨╗╨░╤Б╤Б╨╛╨▓ --------------
+
+    header.page-header
+        .lay-center-wrap
+            .logo
+            .btn-1
+            .btn-1
+            .menu-toggle
+            .main-menu
+    main.index
+        .lay-center-wrap
+            section.acc-details
+                header.section-header
+                    .title
+                .img-feature
+                    .img-wrap
+                        img.acc-pic
+                    label
+                    label
+                    label
+                footer.section-header
+                    label
+                    .btn-2
+            section.chan-list
+                header.section-header
+                    .title
+                    .btn-2
+                .table-feature
+                .slider-wrap
+                    .slider
+                footer.section-footer
+                    .info
+                    .centerer
+                        .btn-2
+            section.pay-details
+                header.section-header
+                    .title
+                .column-set [╨░╨╜╨░╨╗╨╛╨│ row ╨▓ bootstrap]
+                    .radio-feature
+                        .col-55-prc  | ╨║╨╛╨╗╨╛╨╜╨║╨░ ╨╜╨░ 55% ╤И╨╕╤А╨╕╨╜╤Л
+                            input[radio]
+                            input[radio]
+                            input[radio]
+                        .col-45-prc  | ╨║╨╛╨╗╨╛╨╜╨║╨░ ╨╜╨░ 45% ╤И╨╕╤А╨╕╨╜╤Л
+                            .additional-info
+                .col-1  | ╨║╨╛╨╗╨╛╨╜╨║╨░ ╨╜╨░ 100% ╤И╨╕╤А╨╕╨╜╤Л
+                    .info-feature
+                        .info
+                        label
+                footer.section-footer
+                    .centerer
+                        button.btn-2
+                        button.btn-3.inactive
+    footer.page-footer
+        .lay-center-wrap
+            .title
+            .social
+            .copyright
+*/
+/*--------------- $ display resolutions ---------------*/
+/*--------------- @mixin for media queries ---------------*/
+/*--------------- @extends ---------------*/
+/*--------------- base elements styles ---------------*/
+html > body {
+  width: 100%;
+  font-size: 75%; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0;
+  font-size: 12px;
+  line-height: 1.5em;
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: #FCFCFC; }
+
+ul.main-menu {
+  list-style-type: none; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+hr {
+  border-color: #3D97AD; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/*--------------- technical classes ---------------*/
+.right {
+  float: right; }
+
+.left {
+  float: left; }
+
+.centerer {
+  margin: 0 auto;
+  text-align: center; }
+
+.hide {
+  display: none !important; }
+
+/*--------------- grid ---------------*/
+.lay-center-wrap {
+  width: 800px;
+  margin: 0 auto; }
+  .lay-center-wrap:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+.lay-center-wrap,
+.column-set,
+.col-1 {
+  list-style-type: none;
+  box-sizing: border-box; }
+
+.col-left,
+.col-right,
+.col-3-1,
+.col-3-2,
+.col-4-1,
+.col-4-2,
+.col-4-3,
+.col-5-1,
+.col-5-2,
+.col-5-3,
+.col-5-4,
+.col-6-1,
+.col-6-2,
+.col-6-3,
+.col-6-4,
+.col-6-5 {
+  list-style-type: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left; }
+
+.column-set {
+  margin: 0;
+  padding: 0; }
+
+.col-1 {
+  width: 100%;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding: 0; }
+
+.column-set:after,
+.col-1:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+[class^="col-"]:not(.col-1).include-cols {
+  padding-left: 0px;
+  padding-right: 0px; }
+
+.col-left,
+.col-right,
+.col-4-2 {
+  width: 50%; }
+
+.col-3-1 {
+  width: 33.33%; }
+
+.col-3-2 {
+  width: 66.66%; }
+
+.col-4-1 {
+  width: 25%; }
+
+.col-4-3 {
+  width: 75%; }
+
+.col-5-1 {
+  width: 20%; }
+
+.col-5-2 {
+  width: 40%; }
+
+.col-5-3 {
+  width: 60%; }
+
+.col-5-4 {
+  width: 80%; }
+
+.col-6-1 {
+  width: 16.66667%; }
+
+.col-6-2 {
+  width: 33.33333%; }
+
+.col-6-3 {
+  width: 50%; }
+
+.col-6-4 {
+  width: 66.66667%; }
+
+.col-6-5 {
+  width: 83.33333%; }
+
+/*--------------- shared classes ---------------*/
+.title {
+  font-size: 2.0833em;
+  line-height: 1.0417em;
+  font-weight: 700;
+  margin-bottom: 0.6em; }
+
+.info {
+  font-size: 1.5833em;
+  line-height: 1.8947em;
+  font-weight: 700;
+  color: #6CC9CB; }
+
+/*--------------- header ---------------*/
+/*--------------- main ---------------*/
+/*--------------- section.acc-details ---------------*/
+/*--------------- section.chan-list ---------------*/
+/*--------------- section.pay-details ---------------*/
+/*--------------- special main classes ---------------*/
+/*--------------- footer ---------------*/
+/*--------------- common styles for  headers and footers ---------------*/
+
+/*# sourceMappingURL=style.css.map */

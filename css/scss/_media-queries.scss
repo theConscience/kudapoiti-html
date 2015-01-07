@@ -1,0 +1,604 @@
+/* Smartphones (portrait and landscape) -----------
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) { }  */
+/* Smartphones (landscape) ----------- 
+@media only screen 
+and (min-width : 321px) { } */
+/* Smartphones (portrait) ----------- 
+@media only screen 
+and (max-width : 320px) { } */
+
+$ipad-width: 1024px;
+$ipad-height: 758px;
+$biggest: 890px;
+$big: 800px;
+$average: 700px;
+$small: 595px;
+$smaller: 585px;
+$smallest: 500px;
+
+@mixin apply-to($ltgt, $window-size1, $window-size2, $orientation, $type) {
+    $extrema1: null;
+    $extrema2: null;
+    @if $ltgt == less-than {
+        $extrema1: max;
+        @if $window-size2 {
+            $extrema2: min;
+        }
+    }    
+    @if $ltgt == greater-than {
+        $extrema1: min;
+        @if $window-size2 {
+            $extrema2: max;
+        }
+    }
+    @if $type != none {
+        $extrema1: #{$extrema1}-#{$type};
+        @if $extrema2 {
+            $extrema2: #{$extrema2}-#{$type};
+        }
+    }
+    @if  $window-size2 == none {
+        @if  $orientation == none {
+            @media only screen and (#{$extrema1}-width: $window-size1) {
+                @content;
+            }
+        } @else {
+            @media only screen and (#{$extrema1}-width: $window-size1) and (orientation: $orientation) {
+                @content;
+            }
+        }  
+
+    } @else  {
+        @if  $orientation == none {
+            @media only screen and (#{$extrema1}-width: $window-size1) and (#{$extrema2}-width: $window-size2) {
+                @content;
+            }
+        } @else {
+            @media only screen and (#{$extrema1}-width: $window-size1) and (#{$extrema2}-width: $window-size2) and (orientation: $orientation) {
+                @content;
+            }
+        }
+    }
+}
+
+.block {
+    @include apply-to(less-than, $ipad-landscape, none, none, none) {
+        background: yellow;
+    }
+    @include apply-to(less-than, $ipad-landscape, $biggest, portrait, device) {
+        background: black;
+    }  
+}
+
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+    .lay-center-wrap { 
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            width: 90%; }
+    }
+
+    .page-header .logo {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            left: 100px; }
+    }
+    .page-header .menu-toggle {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            position: absolute;
+            left: 0px;
+            top: 0;
+            width: 50px;
+            height: 35px;  
+            cursor: pointer; }
+    }
+    .page-header .menu-toggle:before,
+    .page-header .menu-toggle:after,
+    .page-header .menu-toggle i:after {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            content: "";
+            position: absolute;
+            top: 9px;
+            display: block;
+            width: 28px;
+            height: 3px;
+            left: 0;
+            right: 0;
+            margin: 0 auto; 
+            background-color: #ffffff;  }   
+    }
+    .page-header .menu-toggle:after {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            top: 16px; }
+    }
+    .page-header .menu-toggle i:after {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            top: 23px; }    
+    }
+
+    .page-header .menu-toggle-active {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            background-color: #003859; } 
+    }
+
+    .page-header .main-menu {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            position: absolute;
+            top: 35px;
+            right:640px;
+            left: -320px;
+            -webkit-transition: all 0.5s linear;
+            -moz-transition: all 0.5s linear;
+            -ms-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+            transition: all 0.5s linear; }
+        
+    }
+
+    .page-header .main-menu li {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            display: inherit;
+            width: 274px; }     
+    }
+
+    .page-header .main-menu li a {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            font-size: 1.6158em; /* 19.39px */
+            line-height: 1.8566em; /* 36px */
+            background-color: #003859; } 
+    }
+
+    .page-header .main-menu li:nth-of-type(1):before,
+    .page-header .main-menu li:nth-of-type(2):before,
+    .page-header .main-menu li:nth-of-type(3):before,
+    .page-header .main-menu li:nth-of-type(4):before {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            top: 19px;
+            left: 10px; }  
+    }
+
+    .page-header .btn-1 {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            margin-right: 10px; }
+    }
+
+    main .acc-details input[type="text"]:disabled,
+    main .chan-list input[type="text"]:disabled,
+    main .pay-details input[type="text"]:disabled {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            width: 60%; } 
+    }    
+
+    main .chan-list .section-header .btn-2,
+    main .chan-list .section-header .title {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            float: none; }
+    }
+
+    main .chan-list .section-footer .info {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            width: 100%;
+            float: none;
+            position: inherit;
+            margin-bottom: 10px; }
+    }
+
+    main .chan-list .section-footer .centerer {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            text-align: left; }
+    }
+
+
+    main .acc-details .img-feature .img-wrap:after {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            content: "";
+            display: block;
+            clear: both; }
+    }
+
+    main .acc-details .img-feature .img-wrap img.acc-pic {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            float: none;
+            width: 200px;
+            height: 200px;
+            margin-right: 40%; }
+    }
+
+    main .acc-details  .img-feature {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            padding-bottom: 1em; }
+    }
+
+    main .acc-details .section-footer {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            text-align: left; } 
+    }
+
+    main  .acc-details .section-footer label {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            box-sizing: border-box;
+            width: 100%;
+            float: left;
+            padding: 0;
+            padding-bottom: 1.5em; }
+    }
+
+    main  .acc-details .section-footer .btn-2 {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            float: left;
+            margin: auto; }
+    }
+
+    main  .chan-list .table-feature th:first-of-type,
+    main  .chan-list .table-feature td:first-of-type {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            width: 30%; }
+    }
+
+    main  .chan-list .table-feature th:nth-of-type(2),
+    main  .chan-list .table-feature td:nth-of-type(2) {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            width: 25%; }
+    }
+
+    main  .chan-list .table-feature th:nth-of-type(4),
+    main  .chan-list .table-feature td:nth-of-type(4) {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            width: 15%; }
+    }
+
+    main  .chan-list .table-feature th:nth-of-type(1):after {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            left: 88%; }
+    }
+
+    main  .chan-list .table-feature th:nth-of-type(2):after {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            left: 82%; }
+    }
+
+    main  .chan-list .table-feature th:nth-of-type(3):after {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+           right: 0; }
+    }
+
+    main .pay-details .radio-feature label {
+        @include apply-to(less-than, $ipad-width, $ipad-height, portrait, device) {
+            width: 100%; }
+    }    
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (max-width : 500px) { /* lay-center-wraper of header starting to stretch, main-menu moving to left */
+    
+    main .lay-center-wrap {
+        @include apply-to(less-than, $smallest, none, none, none) {
+            width: 100% !important; }
+    }
+
+    main .acc-details input[type="text"]:disabled,
+    main .chan-list input[type="text"]:disabled,
+    main .pay-details input[type="text"]:disabled {
+        @include apply-to(less-than, $smallest, none, none, none) {
+            width: 60%; }
+    }
+
+    main .chan-list .section-header .title {
+        @include apply-to(less-than, $smallest, none, none, none) {
+            float: none; }
+    }
+
+    main .chan-list .section-header .btn-2 {
+        @include apply-to(less-than, $smallest, none, none, none) {
+            float: none; }
+    }
+
+    main .chan-list .section-footer .info {
+        @include apply-to(less-than, $smallest, none, none, none) {
+            width: 100%;
+            float: none;
+            position: inherit;
+            margin-bottom: 10px; }
+    }
+
+    main .chan-list .section-footer .centerer {
+        @include apply-to(less-than, $smallest, none, none, none) {
+            text-align: left; }
+    }
+}
+
+@media only screen 
+and (max-width : 585px) {
+    
+    main .acc-details .img-feature .img-wrap:after {
+        @include apply-to(less-than, $smaller, none, none, none) {
+            content: "";
+            display: block;
+            clear: both; }
+    }
+
+    main .acc-details .img-feature .img-wrap img.acc-pic {
+        @include apply-to(less-than, $smaller, none, none, none) {
+            float: none;
+            width: 200px;
+            height: 200px;
+            margin-right: 40%; } 
+    }
+
+    main .acc-details .img-feature {
+        @include apply-to(less-than, $smaller, none, none, none) {
+            padding-bottom: 1em; }
+    }
+}
+
+@media only screen 
+and (max-width : 595px) { /* main menu collapse */
+    
+    .lay-center-wrap {
+        @include apply-to(less-than, $small, none, none, none) {
+            width: 90%; }
+    }    
+
+    .page-header .logo {
+        @include apply-to(less-than, $small, none, none, none) {
+            left: 100px; }
+    }
+
+    .page-header .menu-toggle {
+        @include apply-to(less-than, $small, none, none, none) {
+            position: absolute;
+            left: 0px;
+            top: 0;
+            width: 50px;
+            height: 35px;  
+            cursor: pointer;  }
+    }
+    .page-header .menu-toggle:before,
+    .page-header .menu-toggle:after,
+    .page-header .menu-toggle i:after {
+        @include apply-to(less-than, $small, none, none, none) {
+            content: "";
+            position: absolute;
+            top: 9px;
+            display: block;
+            width: 28px;
+            height: 3px;
+            left: 0;
+            right: 0;
+            margin: 0 auto; 
+            background-color: #ffffff; }
+    }
+    .page-header .menu-toggle:after {
+        @include apply-to(less-than, $small, none, none, none) {
+            top: 16px; }
+    }
+    .page-header .menu-toggle i:after {
+        @include apply-to(less-than, $small, none, none, none) {
+            top: 23px; }
+    }
+
+    .page-header .menu-toggle-active {
+        @include apply-to(less-than, $small, none, none, none) {
+            background-color: #003859; }     
+    }
+
+    .page-header .main-menu {
+        @include apply-to(less-than, $small, none, none, none) {
+            position: absolute;
+            top: 35px;
+            right:640px;
+            left: -320px;
+            -webkit-transition: all 0.5s linear;
+            -moz-transition: all 0.5s linear;
+            -ms-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+            transition: all 0.5s linear; } 
+    }
+
+    .page-header .main-menu li {
+        @include apply-to(less-than, $small, none, none, none) {
+            display: inherit;
+            width: 274px;
+        }
+    }
+
+    .page-header .main-menu li a {
+        @include apply-to(less-than, $small, none, none, none) {
+            font-size: 1.6158em; /* 19.39px */
+            line-height: 1.8566em; /* 36px */
+            background-color: #003859;
+        }
+    }
+
+    .page-header .main-menu li:nth-of-type(1):before,
+    .page-header .main-menu li:nth-of-type(2):before,
+    .page-header .main-menu li:nth-of-type(3):before,
+    .page-header .main-menu li:nth-of-type(4):before {
+        @include apply-to(less-than, $small, none, none, none) {
+            top: 19px;
+            left: 10px;
+        }  
+    }
+
+    .page-header .btn-1 { 
+        @include apply-to(less-than, $small, none, none, none) {
+            margin-right: 10px;
+        }  
+    }  
+
+
+    main .acc-details .section-footer {
+        @include apply-to(less-than, $small, none, none, none) {
+            text-align: left;
+        }
+    }
+
+    main  .acc-details .section-footer label {
+        @include apply-to(less-than, $small, none, none, none) {
+            box-sizing: border-box;
+            width: 100%;
+            float: left;
+            padding: 0;
+            padding-bottom: 1.5em;
+        }
+    }
+
+    main .acc-details .section-footer .btn-2 {
+        @include apply-to(less-than, $small, none, none, none) {
+            float: left;
+            margin: auto;
+        }
+    }
+
+    main .chan-list .table-feature th:first-of-type,
+    main .chan-list .table-feature td:first-of-type {
+        @include apply-to(less-than, $small, none, none, none) {
+            width: 30%;
+        }
+    }
+
+    main .chan-list .table-feature th:nth-of-type(2),
+    main .chan-list .table-feature td:nth-of-type(2) {
+        @include apply-to(less-than, $small, none, none, none) {
+            width: 25%;
+        }
+    }
+
+    main .chan-list .table-feature th:nth-of-type(4),
+    main .chan-list .table-feature td:nth-of-type(4) {
+        @include apply-to(less-than, $small, none, none, none) {
+            width: 15%;
+        }
+    }
+
+    main .chan-list .table-feature th:nth-of-type(1):after {
+        @include apply-to(less-than, $small, none, none, none) {
+           left: 88%;
+        }
+    }
+
+    main .chan-list .table-feature th:nth-of-type(2):after {
+        @include apply-to(less-than, $small, none, none, none) {
+           left: 82%;
+        }
+    }
+
+    main .chan-list .table-feature th:nth-of-type(3):after {
+        @include apply-to(less-than, $small, none, none, none) {
+           right: 0;
+        }
+    }
+
+    main .pay-details .radio-feature label {
+        @include apply-to(less-than, $small, none, none, none) {
+            width: 100%;
+        } 
+    } 
+}
+
+@media only screen 
+and (min-width: 595px)
+and (max-width: 700px) { /* move .acc-details .section-footer {content} to left */
+    .lay-center-wrap {
+        @include apply-to(less-than, $average, $small, none, none) {
+            width: 90%;
+        }
+    }    
+
+    .page-header .btn-1 { 
+        @include apply-to(less-than, $average, $small, none, none) {
+            margin-right: 10px;
+        }
+    } 
+
+    main .acc-details .section-footer {
+        @include apply-to(less-than, $average, $small, none, none) {
+            text-align: left;
+        }
+    } 
+
+    main .acc-details .section-footer label {
+        @include apply-to(less-than, $average, $small, none, none) {
+            box-sizing: border-box;
+            width: 100%;
+            float: left;
+            padding: 0;
+            padding-bottom: 1.5em;
+        }
+    }
+
+    main .acc-details .section-footer .btn-2 {
+        @include apply-to(less-than, $average, $small, none, none) {
+            float: left;
+            margin: auto;
+        }
+    }
+
+    main .chan-list .table-feature th:first-of-type,
+    main .chan-list .table-feature td:first-of-type {
+        @include apply-to(less-than, $average, $small, none, none) {
+            width: 35%;
+        }
+    }
+
+    main .chan-list .table-feature th:nth-of-type(1):after {
+        @include apply-to(less-than, $average, $small, none, none) {
+            left: 70%;
+        }
+    }
+
+    main .chan-list .table-feature th:nth-of-type(2):after {
+        @include apply-to(less-than, $average, $small, none, none) {
+            right: 5%;
+        }
+    }
+
+    main .pay-details .radio-feature label {
+        @include apply-to(less-than, $average, $small, none, none) {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen 
+and (min-width: 700px)  /*640*/  
+and (max-width: 800px) { /* lay-center-wraper starting to stretch */
+    .lay-center-wrap { 
+        @include apply-to(less-than, $big, $average, none, none) {
+            width: 90%;
+        }
+    }
+
+    .page-header .btn-1 { 
+        @include apply-to(less-than, $big, $average, none, none) {
+            margin-right: 10px;
+        }
+    }
+
+    main .chan-list .table-feature th:first-of-type,
+    main .chan-list .table-feature td:first-of-type {
+        @include apply-to(less-than, $big, $average, none, none) {
+            width: 40%;
+        }
+    }
+
+    main .pay-details .radio-feature label {
+        @include apply-to(less-than, $big, $average, none, none) {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen 
+and (max-width: 890px) { /* lay-center-wraper of header starting to stretch, main-menu moving to left */
+    .page-header .lay-center-wrap {
+        @include apply-to(less-than, $biggest, none, none, none) {
+            width: 100%;
+        }
+    }
+}
