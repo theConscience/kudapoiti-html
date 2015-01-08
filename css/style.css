@@ -64,19 +64,65 @@
 /*--------------- base elements styles ---------------*/
 html > body {
   width: 100%;
-  font-size: 75%; }
+  font-size: 87.5%; }
 
 body {
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5em;
+  /* 21px */
   font-weight: 400;
   overflow-x: hidden;
   background-color: #FCFCFC; }
-
-ul.main-menu {
-  list-style-type: none; }
+  body h1 {
+    font-size: 1.4286em;
+    /* 20px */
+    line-height: 1.0500em;
+    /* 21px */
+    margin-top: 1.0500em;
+    margin-bottom: 0.0000em; }
+  body h2 {
+    font-size: 1.2857em;
+    /* 18px */
+    line-height: 1.1667em;
+    /* 21px */
+    margin-top: 1.1667em;
+    margin-bottom: 0.0000em; }
+  body h3 {
+    font-size: 1.1429em;
+    /* 16px */
+    line-height: 1.3125em;
+    /* 21px */
+    margin-top: 1.3125em;
+    margin-bottom: 0.0000em; }
+  body h4 {
+    font-size: 1.0714em;
+    /* 15px */
+    line-height: 1.4000em;
+    /* 21px */
+    margin-top: 1.4000em;
+    margin-bottom: 0.0000em; }
+  body h5 {
+    font-size: 0.9286em;
+    /* 13px */
+    line-height: 1.6154em;
+    /* 21px */
+    margin-top: 1.6154em;
+    margin-bottom: 0.0000em; }
+  body h6 {
+    font-size: 0.8571em;
+    /* 12px */
+    line-height: 1.7500em;
+    /* 21px */
+    margin-top: 1.7500em;
+    margin-bottom: 0.0000em; }
+  body p {
+    font-size: 1em;
+    /* 14px */
+    line-height: 1.5000em;
+    /* 21px */
+    margin: 0 0 1.5000em 0; }
 
 a {
   text-decoration: none; }
@@ -105,9 +151,13 @@ hr {
 .hide {
   display: none !important; }
 
+.uppercase {
+  text-transform: uppercase; }
+
 /*--------------- grid ---------------*/
 .lay-center-wrap {
-  width: 800px;
+  width: 80%;
+  max-width: 1350px;
   margin: 0 auto; }
   .lay-center-wrap:after {
     content: "";
@@ -221,11 +271,61 @@ hr {
   font-weight: 700;
   color: #6CC9CB; }
 
+.fs-30px {
+  font-size: 2.1429em;
+  /* 30px */
+  line-height: 1.4000em;
+  /* 42px */
+  margin-top: 0.7000em;
+  margin-bottom: 0.0000em; }
+
+.fs-60px {
+  font-size: 4.2857em;
+  /* 60px */
+  line-height: 1.0500em;
+  /* 63px */
+  margin-top: 0.3500em;
+  margin-bottom: 0.0000em; }
+
 /*--------------- header ---------------*/
-header.page-header nav ul.main-menu li {
-  display: inline-block; }
+header.page-header {
+  max-height: 650px;
+  padding-top: 40px;
+  background-color: deepskyblue; }
+  header.page-header .lay-center-wrap {
+    background-color: lightblue; }
+    header.page-header .lay-center-wrap nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 55%;
+      min-width: 850px;
+      background-color: lightseagreen; }
+      header.page-header .lay-center-wrap nav ul.main-menu {
+        width: 780px;
+        margin: auto;
+        padding: 0;
+        list-style-type: none; }
+        header.page-header .lay-center-wrap nav ul.main-menu li {
+          display: inline-block;
+          margin-right: 10px; }
+          header.page-header .lay-center-wrap nav ul.main-menu li:last-of-type {
+            margin-right: 0; }
+          header.page-header .lay-center-wrap nav ul.main-menu li a {
+            font-size: 2.1429em;
+            /* 30px */
+            line-height: 1.4000em;
+            /* 42px */
+            margin-top: 0.7000em;
+            margin-bottom: 0.0000em; }
 
 /*--------------- main ---------------*/
+main .lay-center-wrap {
+  width: 85%;
+  box-shadow: 0 0 10px 4px black; }
+
 /*--------------- section.acc-details ---------------*/
 /*--------------- section.chan-list ---------------*/
 /*--------------- section.pay-details ---------------*/
