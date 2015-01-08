@@ -301,10 +301,21 @@ hr {
 
 /*--------------- header ---------------*/
 header.page-header {
+  position: relative;
   max-height: 630px;
-  padding-bottom: 1.5em;
-  background-color: deepskyblue;
-  background-image: url("../img/header_bg_big.png"); }
+  margin-bottom: 1.5em;
+  overflow: hidden; }
+  header.page-header img {
+    -webkit-filter: brightness(0.6);
+    filter: brightness(0.6);
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    min-height: 630px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto; }
   header.page-header .lay-center-wrap {
     background-color: lightblue; }
     header.page-header .lay-center-wrap .slider {
@@ -312,6 +323,7 @@ header.page-header {
       height: 609px;
       background-color: red;
       background-position: center;
+      background-repeat: no-repeat;
       background-image: url("../img/header_bg.jpg"); }
       header.page-header .lay-center-wrap .slider nav {
         position: fixed;
@@ -411,7 +423,8 @@ main .lay-center-wrap {
     main .lay-center-wrap .col-5-1:last-of-type {
       background-color: lightblue; }
     main .lay-center-wrap .col-5-1 aside {
-      background-color: #e5e5e5; }
+      background-color: #e5e5e5;
+      width: 240px; }
       main .lay-center-wrap .col-5-1 aside p {
         font-size: 0.8571429em;
         /* 12px */

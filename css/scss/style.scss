@@ -334,10 +334,21 @@ hr { border-color: #3D97AD; }
 /*--------------- header ---------------*/
 
 header.page-header {
+    position: relative;
     max-height: 630px;
-    padding-bottom: 1.5em;
-    background-color: deepskyblue;
-    background-image: url('../img/header_bg_big.png');
+    margin-bottom: 1.5em;
+    overflow: hidden;
+    img {
+        -webkit-filter: brightness(0.6);
+        filter: brightness(0.6);
+        z-index: -1;
+        position: absolute; 
+        width: 100%;
+        min-height: 630px;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto; }
     .lay-center-wrap {
         background-color: lightblue;
         .slider {
@@ -345,6 +356,7 @@ header.page-header {
             height: 609px;
             background-color: red;
             background-position: center;
+            background-repeat: no-repeat;
             background-image: url('../img/header_bg.jpg');
             nav {
                 position:fixed;
@@ -457,6 +469,7 @@ main {
                 background-color: lightblue; }
             aside {
                 background-color: #e5e5e5;
+                width: 240px;
                 p {
                     font-size: 0.8571429em; /* 12px */
                     line-height: 1.7500em; /* 21px */
