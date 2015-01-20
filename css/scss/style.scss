@@ -64,6 +64,7 @@
 $ipad-width: 1024px;
 $ipad-height: 758px;
 $biggest: 890px;
+$strange1: 841px;
 $big: 800px;
 $average: 700px;
 $small: 595px;
@@ -369,7 +370,7 @@ hr { border-color: #3D97AD; }
 
 header.page-header {
     position: relative;
-    max-height: 630px;
+    max-height: 930px;
     margin-bottom: 1.5em;
     overflow: hidden;
     img {
@@ -379,7 +380,7 @@ header.page-header {
         position: absolute; 
         width: 100%;
         min-width: 1143px;
-        min-height: 630px;
+        min-height: 930px;
         top: 0;
         left: 0;
         right: 0;
@@ -388,12 +389,12 @@ header.page-header {
         background-color: none;
         .slider {
             position: relative;
-            height: 609px;
+            height: 909px;
             background-color: none;
             background-position: center; /*  top */
             background-repeat: no-repeat;
             /* background-attachment: fixed; */
-            background-size: contain;
+            background-size: auto 100%;
             background-image: url('../img/header_bg.jpg');
             nav {
                 position:fixed;
@@ -411,11 +412,19 @@ header.page-header {
                     margin: auto;
                     padding: 0;
                     list-style-type: none;
+                    @include apply-to(less-than, $strange1, none, none, none) {
+                        margin: 0 10px; }
                     li {
                         display: inline-block;
+                        @include apply-to(less-than, $big, none, none, none) {
+                            display: none; }
                         margin-right: 10px;
                         &:last-of-type {
                             margin-right: 0;}
+                        &:nth-of-type(4) {
+                            @include apply-to(less-than, $big, none, none, none) {
+                                display: inline-block; }
+                        }
                         a {
                             text-shadow: 0 0 6px black;
                             font-size: 2.1429em; /* 30px */

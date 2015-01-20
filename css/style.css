@@ -341,7 +341,7 @@ hr {
 /*--------------- header ---------------*/
 header.page-header {
   position: relative;
-  max-height: 630px;
+  max-height: 930px;
   margin-bottom: 1.5em;
   overflow: hidden; }
   header.page-header img {
@@ -351,7 +351,7 @@ header.page-header {
     position: absolute;
     width: 100%;
     min-width: 1143px;
-    min-height: 630px;
+    min-height: 930px;
     top: 0;
     left: 0;
     right: 0;
@@ -360,13 +360,13 @@ header.page-header {
     background-color: none; }
     header.page-header .lay-center-wrap .slider {
       position: relative;
-      height: 609px;
+      height: 909px;
       background-color: none;
       background-position: center;
       /*  top */
       background-repeat: no-repeat;
       /* background-attachment: fixed; */
-      background-size: contain;
+      background-size: auto 100%;
       background-image: url("../img/header_bg.jpg"); }
       header.page-header .lay-center-wrap .slider nav {
         position: fixed;
@@ -384,11 +384,20 @@ header.page-header {
           margin: auto;
           padding: 0;
           list-style-type: none; }
+          @media only screen and (max-width: 841px) {
+            header.page-header .lay-center-wrap .slider nav ul.main-menu {
+              margin: 0 10px; } }
           header.page-header .lay-center-wrap .slider nav ul.main-menu li {
             display: inline-block;
             margin-right: 10px; }
+            @media only screen and (max-width: 800px) {
+              header.page-header .lay-center-wrap .slider nav ul.main-menu li {
+                display: none; } }
             header.page-header .lay-center-wrap .slider nav ul.main-menu li:last-of-type {
               margin-right: 0; }
+            @media only screen and (max-width: 800px) {
+              header.page-header .lay-center-wrap .slider nav ul.main-menu li:nth-of-type(4) {
+                display: inline-block; } }
             header.page-header .lay-center-wrap .slider nav ul.main-menu li a {
               text-shadow: 0 0 6px black;
               font-size: 2.1429em;
