@@ -431,32 +431,40 @@ header.page-header {
             .arrow-left {
                 content: "";
                 position: absolute;
-                left: -6em;
-                top: 25%;
+                left: 1em;
+                top: 45%;
                 display: block;
-                height: 23.5em;
-                width: 12.5em;
-                background-image: url('../img/arrow_left.png');
+                height: 137px;
+                width: 70px;
+                background-image: url('../img/arrow_left_new.png');
+                background-repeat: no-repeat;
                 &:hover {
                     cursor: pointer;
                     background: 
-                        url('../img/arrow_left.png'),
-                        url('../img/arrow_left.png'); }
+                        url('../img/arrow_left_new.png'),
+                        url('../img/arrow_left_new.png');
+                    background-repeat: 
+                        no-repeat,
+                        no-repeat; }
             }
             .arrow-right {
                 content: "";
                 position: absolute;
-                right: -6em;
-                top: 25%;
+                right: 1em;
+                top: 45%;
                 display: block;
-                height: 23.5em;
-                width: 12.5em;
-                background-image: url('../img/arrow_right.png');
+                height: 137px;
+                width: 70px;
+                background-image: url('../img/arrow_right_new.png');
+                background-repeat: no-repeat;
                 &:hover {
                     cursor: pointer;
                     background: 
-                        url('../img/arrow_right.png'),
-                        url('../img/arrow_right.png'); }
+                        url('../img/arrow_right_new.png'),
+                        url('../img/arrow_right_new.png');
+                    background-repeat: 
+                        no-repeat,
+                        no-repeat; }
             }
             .article-title {
                 position: absolute;
