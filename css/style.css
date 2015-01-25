@@ -84,16 +84,23 @@
 /*--------------- grid ---------------*/
 .lay-center-wrap {
   width: 100%;
-  max-width: 1350px;
+  max-width: 1000px;
   margin: 0 auto; }
+  @media only screen and (min-width: 1366px) {
+    .lay-center-wrap {
+      max-width: 1340px; } }
   .lay-center-wrap:after {
     content: "";
     display: block;
     clear: both; }
 
 .column-set.max-1340 {
-  width: 1340px;
+  width: 1000px;
   margin-right: -570px; }
+  @media only screen and (min-width: 1366px) {
+    .column-set.max-1340 {
+      max-width: 1340px;
+      margin-right: -460px; } }
 
 .lay-center-wrap,
 .column-set,
@@ -192,17 +199,24 @@
 .col-1.max-1340 {
   float: left;
   margin-right: -570px; }
+  @media only screen and (min-width: 1366px) {
+    .col-1.max-1340 {
+      margin-right: -460px; } }
 
 .col-500to800 {
   position: relative;
-  min-width: 500px;
-  max-width: 780px;
+  width: 540px;
   margin-right: 570px;
   list-style-type: none;
   box-sizing: border-box;
   padding-left: 10px;
   padding-right: 10px;
   float: left; }
+  @media only screen and (min-width: 1366px) {
+    .col-500to800 {
+      width: auto;
+      max-width: 900px;
+      margin-right: 460px; } }
 
 .column-set.fix-540 {
   float: right; }
@@ -221,7 +235,7 @@
   padding-left: 5px; }
 
 .col-fix-240 {
-  width: 240px;
+  width: 130px;
   padding-right: 5px; }
 
 /*--------------- base elements styles ---------------*/
@@ -341,7 +355,7 @@ hr {
 /*--------------- header ---------------*/
 header.page-header {
   position: relative;
-  max-height: 930px;
+  max-height: 621px;
   margin-bottom: 1.5em;
   overflow: hidden; }
   header.page-header img {
@@ -351,7 +365,7 @@ header.page-header {
     position: absolute;
     width: 100%;
     min-width: 1143px;
-    min-height: 930px;
+    min-height: 621px;
     top: 0;
     left: 0;
     right: 0;
@@ -360,13 +374,13 @@ header.page-header {
     background-color: none; }
     header.page-header .lay-center-wrap .slider {
       position: relative;
-      height: 909px;
+      height: 600px;
       background-color: none;
       background-position: center;
       /*  top */
       background-repeat: no-repeat;
       /* background-attachment: fixed; */
-      background-size: auto 100%;
+      background-size: cover;
       background-image: url("../img/header_bg.jpg"); }
       header.page-header .lay-center-wrap .slider nav {
         position: fixed;
@@ -485,30 +499,43 @@ header.page-header {
               margin-right: -5px; }
 
 /*--------------- main ---------------*/
-main .lay-center-wrap {
-  width: 85%;
-  box-shadow: 0 0 10px 4px black; }
-  main .lay-center-wrap .col-500to800 {
-    background-color: lightgrey; }
-    main .lay-center-wrap .col-500to800 article {
+main {
+  /*position:relative;
+  &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -1.5em;
+      left: -1000px;
+      height: 3em;
+      width: 3000px;
+      background-image: url('../img/symphony.png');
+      background-position: -10px center;
+      z-index: 10;
+      }*/ }
+  main .lay-center-wrap {
+    box-shadow: 0 0 10px 4px black; }
+    main .lay-center-wrap .col-500to800 {
+      background-color: lightgrey; }
+      main .lay-center-wrap .col-500to800 article {
+        background-color: #e5e5e5; }
+        main .lay-center-wrap .col-500to800 article p:last-of-type {
+          margin-bottom: 1.5em; }
+    main .lay-center-wrap .col-fix-240 {
+      background-color: lightgreen; }
+    main .lay-center-wrap .col-fix-300 {
+      background-color: lightblue; }
+    main .lay-center-wrap aside {
       background-color: #e5e5e5; }
-      main .lay-center-wrap .col-500to800 article p:last-of-type {
-        margin-bottom: 1.5em; }
-  main .lay-center-wrap .col-fix-240 {
-    background-color: lightgreen; }
-  main .lay-center-wrap .col-fix-300 {
-    background-color: lightblue; }
-  main .lay-center-wrap aside {
-    background-color: #e5e5e5; }
-    main .lay-center-wrap aside p {
-      font-size: 0.8571429em;
-      /* 12px */
-      line-height: 1.7500em;
-      /* 21px */
-      margin-top: 1.7500em;
-      margin-bottom: 0.0000em; }
-      main .lay-center-wrap aside p:last-of-type {
-        margin-bottom: 1.7500em; }
+      main .lay-center-wrap aside p {
+        font-size: 0.8571429em;
+        /* 12px */
+        line-height: 1.7500em;
+        /* 21px */
+        margin-top: 1.7500em;
+        margin-bottom: 0.0000em; }
+        main .lay-center-wrap aside p:last-of-type {
+          margin-bottom: 1.7500em; }
 
 /*--------------- section.acc-details ---------------*/
 /*--------------- section.chan-list ---------------*/
