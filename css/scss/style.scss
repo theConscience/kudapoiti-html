@@ -395,7 +395,7 @@ header.page-header {
     @include apply-to(less-than, $width-1036, none, none, none) { }
     margin-bottom: 1.5em;
     overflow: hidden;
-    img {
+    &>img.darken-img {
         -webkit-filter: brightness(0.2);
         filter: brightness(0.2);
         z-index: -1;
@@ -411,6 +411,7 @@ header.page-header {
         left: 0;
         right: 0;
         margin: 0 auto; }
+    
     .lay-center-wrap {
         background-color: none;
         .slider {
@@ -423,9 +424,40 @@ header.page-header {
             background-color: none;
             background-position: center; /*  top */
             background-repeat: no-repeat;
-            /* background-attachment: fixed; */
+            //background-attachment: fixed;
             background-size: cover;
-            background-image: url('../img/header_bg.jpg');
+            //background-image: url('../img/header_bg.jpg');
+            .img-set {
+                position: relative;
+                left: -1000px;
+                width: 3000px;
+                overflow: hidden;
+                vertical-align: middle;
+                @include apply-to(greater-than, $width-1366, none, none, none) {
+                    left: -1200px;
+                    width: 3600px; }
+                @include apply-to(less-than, $width-1036, none, none, none) { }
+                .darken-img,
+                .center-img {
+                    float:left;
+                    width: 1000px;
+                    height: 600px; 
+                    @include apply-to(greater-than, $width-1366, none, none, none) {
+                        width: 1200px;
+                        height: 720px;}
+                    @include apply-to(less-than, $width-1036, none, none, none) { }
+                }
+                div.darken-img {
+                    -webkit-filter: brightness(0.6);
+                    filter: brightness(0.6);
+                    background-size: cover;
+                    background-repeat: no-repeat; }
+                div.darken-img:first-of-type { }
+                div.center-img {
+                    background-position: center;
+                    background-size: cover; }
+                div.darken-img:last-of-type { }
+            }
             nav {
                 position:fixed;
                 top: 0;

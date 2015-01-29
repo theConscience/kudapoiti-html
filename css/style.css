@@ -365,7 +365,7 @@ header.page-header {
   @media only screen and (min-width: 1366px) {
     header.page-header {
       min-height: 721px; } }
-  header.page-header img {
+  header.page-header > img.darken-img {
     -webkit-filter: brightness(0.2);
     filter: brightness(0.2);
     z-index: -1;
@@ -378,10 +378,10 @@ header.page-header {
     right: 0;
     margin: 0 auto; }
     @media only screen and (min-width: 1366px) {
-      header.page-header img {
+      header.page-header > img.darken-img {
         min-height: 721px; } }
     @media only screen and (max-width: 1036px) {
-      header.page-header img {
+      header.page-header > img.darken-img {
         min-height: 250px; } }
   header.page-header .lay-center-wrap {
     background-color: none; }
@@ -392,15 +392,41 @@ header.page-header {
       background-position: center;
       /*  top */
       background-repeat: no-repeat;
-      /* background-attachment: fixed; */
-      background-size: cover;
-      background-image: url("../img/header_bg.jpg"); }
+      background-size: cover; }
       @media only screen and (min-width: 1366px) {
         header.page-header .lay-center-wrap .slider {
           height: 720px; } }
       @media only screen and (max-width: 1036px) {
         header.page-header .lay-center-wrap .slider {
           height: 250px; } }
+      header.page-header .lay-center-wrap .slider .img-set {
+        position: relative;
+        left: -1000px;
+        width: 3000px;
+        overflow: hidden;
+        vertical-align: middle; }
+        @media only screen and (min-width: 1366px) {
+          header.page-header .lay-center-wrap .slider .img-set {
+            left: -1200px;
+            width: 3600px; } }
+        header.page-header .lay-center-wrap .slider .img-set .darken-img,
+        header.page-header .lay-center-wrap .slider .img-set .center-img {
+          float: left;
+          width: 1000px;
+          height: 600px; }
+          @media only screen and (min-width: 1366px) {
+            header.page-header .lay-center-wrap .slider .img-set .darken-img,
+            header.page-header .lay-center-wrap .slider .img-set .center-img {
+              width: 1200px;
+              height: 720px; } }
+        header.page-header .lay-center-wrap .slider .img-set div.darken-img {
+          -webkit-filter: brightness(0.6);
+          filter: brightness(0.6);
+          background-size: cover;
+          background-repeat: no-repeat; }
+        header.page-header .lay-center-wrap .slider .img-set div.center-img {
+          background-position: center;
+          background-size: cover; }
       header.page-header .lay-center-wrap .slider nav {
         position: fixed;
         top: 0;
