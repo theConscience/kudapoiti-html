@@ -61,7 +61,7 @@
 
 
 /*--------------- $ display resolutions ---------------*/
-$width-1366: 1366px;
+$width-1367: 1367px;
 $width-1036: 1036px;
 $ipad-width: 1024px;
 $ipad-height: 758px;
@@ -157,7 +157,7 @@ $smallest: 500px;
 .lay-center-wrap {
 	width: 100%;
     max-width: 1000px;
-    @include apply-to(greater-than, $width-1366, none, none, none) {
+    @include apply-to(greater-than, $width-1367, none, none, none) {
         max-width: 1200px; }
 	margin: 0 auto;
 	&:after {
@@ -169,7 +169,7 @@ $smallest: 500px;
     &.max-1340 {
         width: 1000px;
         margin-right: -570px;
-        @include apply-to(greater-than, $width-1366, none, none, none) {
+        @include apply-to(greater-than, $width-1367, none, none, none) {
             max-width: 1340px;
             margin-right: -460px;}
         @include apply-to(less-than, $width-1036, none, none, none) {
@@ -263,7 +263,7 @@ $smallest: 500px;
 .col-540 {
     position: relative;
     width: 540px;
-    @include apply-to(greater-than, $width-1366, none, none, none) {
+    @include apply-to(greater-than, $width-1367, none, none, none) {
         width: auto;
         max-width: 740px; }
     @include apply-to(less-than, $width-1036, none, none, none) {
@@ -392,10 +392,10 @@ header.page-header {
     overflow: hidden;
     margin-bottom: 1.5em;
     max-height: 621px;
-    @include apply-to(greater-than, $width-1366, none, none, none) {
-        min-height: 721px; }
+    @include apply-to(greater-than, $width-1367, none, none, none) {
+        max-height: 721px; }
     @include apply-to(less-than, $width-1036, none, none, none) { 
-        }
+        max-height: 521px; }
     background-color: black;
     &>img.darken-img {
         -webkit-filter: brightness(0);
@@ -406,10 +406,10 @@ header.page-header {
         width: 100%;
         min-width: 1143px;
         min-height: 621px;
-        @include apply-to(greater-than, $width-1366, none, none, none) {
+        @include apply-to(greater-than, $width-1367, none, none, none) {
             min-height: 721px; }
         @include apply-to(less-than, $width-1036, none, none, none) {
-            min-height: 250px; }
+            min-height: 521px; }
         top: 0;
         left: 0;
         right: 0;
@@ -420,10 +420,10 @@ header.page-header {
         .slider {
             position: relative;
             height: 600px;
-            @include apply-to(greater-than, $width-1366, none, none, none) {
+            @include apply-to(greater-than, $width-1367, none, none, none) {
                 height: 720px; }
             @include apply-to(less-than, $width-1036, none, none, none) {
-                height: 250px; }
+                height: 520px; }
             background-color: none;
             background-position: center; /*  top */
             background-repeat: no-repeat;
@@ -436,7 +436,7 @@ header.page-header {
                 width: 5000px;
                 overflow: hidden;
                 vertical-align: middle;
-                @include apply-to(greater-than, $width-1366, none, none, none) {
+                @include apply-to(greater-than, $width-1367, none, none, none) {
                     left: -2400px;
                     width: 6000px; }
                 @include apply-to(less-than, $width-1036, none, none, none) { }
@@ -455,7 +455,7 @@ header.page-header {
                     background-size: cover;
                     background-repeat: no-repeat;
                     opacity: 0.2;
-                    @include apply-to(greater-than, $width-1366, none, none, none) {
+                    @include apply-to(greater-than, $width-1367, none, none, none) {
                         width: 1200px;
                         height: 720px;}
                     @include apply-to(less-than, $width-1036, none, none, none) { }
