@@ -1,4 +1,35 @@
 $(function () { 
+    
+    enquire.register('screen and (min-width: 1366px)', {
+        deferSetup : true, // отложим выполнение функции setup, до первого совпадения (matched) с media query
+        setup : function() {
+            console.log('enquire min-width:1366px Setup');
+            // подгружаем контент аяксом (только один раз!)
+        },
+        match : function() {
+            console.log('enquire min-width:1366px Match');
+            $('.img-set').find('div').css({'width':''});
+            // показываем сайдбар
+        },
+        unmatch : function() {
+            console.log('enquire min-width:1366px Unmatch');
+            $('.img-set').find('div').css({'width':''});
+            // прячем сайдбар
+        }
+    });
+    enquire.register('screen and (maxwidth: 1036px)', {
+        deferSetup : true, // отложим выполнение функции setup, до первого совпадения (matched) с media query
+        setup : function() {
+            // подгружаем контент аяксом (только один раз!)
+        },
+        match : function() {
+            // показываем сайдбар
+        },
+        unmatch : function() {
+            // прячем сайдбар
+        }
+    });
+    
     function changeEntry() {
         var prev_entry = $('.arrow-left');
         var next_entry = $('.arrow-right');

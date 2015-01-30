@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
     <head>
         <title>Куда пойти</title>
         <meta charset="utf-8">
@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/icomoon.css">
+        <script type="text/javascript" src="js/modernizr.custom.28050.js"></script>
         <!--[if IE 7]><link rel="stylesheet" type="text/css" href="css/symbols-nerds-ie7.css"><![endif]-->
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -121,6 +122,17 @@
             </div>
         </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/script.js"></script> 
+        <script>
+            Modernizr.load([
+                //сначала определим, нужен ли нам polyfill
+                {
+                    test: window.matchMedia,
+                    nope: "js/media.match.min.js"
+                },
+                //и затем загрузим enquire
+                "js/enquire.min.js",
+                "js/script.js"
+            ]);
+        </script>
     </body>
 </html>
