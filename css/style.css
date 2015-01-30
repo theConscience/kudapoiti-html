@@ -359,15 +359,16 @@ hr {
 /*--------------- header ---------------*/
 header.page-header {
   position: relative;
-  max-height: 621px;
+  overflow: hidden;
   margin-bottom: 1.5em;
-  overflow: hidden; }
+  max-height: 621px;
+  background-color: black; }
   @media only screen and (min-width: 1366px) {
     header.page-header {
       min-height: 721px; } }
   header.page-header > img.darken-img {
-    -webkit-filter: brightness(0.2);
-    filter: brightness(0.2);
+    -webkit-filter: brightness(0);
+    filter: brightness(0);
     z-index: -1;
     position: absolute;
     width: 100%;
@@ -401,32 +402,35 @@ header.page-header {
           height: 250px; } }
       header.page-header .lay-center-wrap .slider .img-set {
         position: relative;
-        left: -1000px;
-        width: 3000px;
+        left: -2000px;
+        width: 5000px;
         overflow: hidden;
         vertical-align: middle; }
         @media only screen and (min-width: 1366px) {
           header.page-header .lay-center-wrap .slider .img-set {
-            left: -1200px;
-            width: 3600px; } }
-        header.page-header .lay-center-wrap .slider .img-set .darken-img,
-        header.page-header .lay-center-wrap .slider .img-set .center-img {
+            left: -2400px;
+            width: 6000px; } }
+        header.page-header .lay-center-wrap .slider .img-set.move-left {
+          left: -2000px; }
+        header.page-header .lay-center-wrap .slider .img-set.move-right {
+          left: 0; }
+        header.page-header .lay-center-wrap .slider .img-set.transitable {
+          transition: ease 2s all; }
+        header.page-header .lay-center-wrap .slider .img-set div {
           float: left;
           width: 1000px;
-          height: 600px; }
+          height: 600px;
+          background-color: black;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          opacity: 0.2; }
           @media only screen and (min-width: 1366px) {
-            header.page-header .lay-center-wrap .slider .img-set .darken-img,
-            header.page-header .lay-center-wrap .slider .img-set .center-img {
+            header.page-header .lay-center-wrap .slider .img-set div {
               width: 1200px;
               height: 720px; } }
-        header.page-header .lay-center-wrap .slider .img-set div.darken-img {
-          -webkit-filter: brightness(0.6);
-          filter: brightness(0.6);
-          background-size: cover;
-          background-repeat: no-repeat; }
         header.page-header .lay-center-wrap .slider .img-set div.center-img {
-          background-position: center;
-          background-size: cover; }
+          opacity: 1; }
       header.page-header .lay-center-wrap .slider nav {
         position: fixed;
         top: 0;

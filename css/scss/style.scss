@@ -389,15 +389,18 @@ hr { border-color: #3D97AD; }
 
 header.page-header {
     position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5em;
     max-height: 621px;
     @include apply-to(greater-than, $width-1366, none, none, none) {
         min-height: 721px; }
-    @include apply-to(less-than, $width-1036, none, none, none) { }
-    margin-bottom: 1.5em;
-    overflow: hidden;
+    @include apply-to(less-than, $width-1036, none, none, none) { 
+        }
+    background-color: black;
     &>img.darken-img {
-        -webkit-filter: brightness(0.2);
-        filter: brightness(0.2);
+        -webkit-filter: brightness(0);
+        filter: brightness(0);
+        //opacity:0;
         z-index: -1;
         position: absolute; 
         width: 100%;
@@ -429,34 +432,35 @@ header.page-header {
             //background-image: url('../img/header_bg.jpg');
             .img-set {
                 position: relative;
-                left: -1000px;
-                width: 3000px;
+                left: -2000px;
+                width: 5000px;
                 overflow: hidden;
                 vertical-align: middle;
                 @include apply-to(greater-than, $width-1366, none, none, none) {
-                    left: -1200px;
-                    width: 3600px; }
+                    left: -2400px;
+                    width: 6000px; }
                 @include apply-to(less-than, $width-1036, none, none, none) { }
-                .darken-img,
-                .center-img {
-                    float:left;
+                &.move-left {
+                    left: -2000px;}
+                &.move-right {
+                    left: 0;}
+                &.transitable {
+                    transition: ease 2s all;}
+                div {
+                    float: left;
                     width: 1000px;
-                    height: 600px; 
+                    height: 600px;
+                    background-color: black;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    opacity: 0.2;
                     @include apply-to(greater-than, $width-1366, none, none, none) {
                         width: 1200px;
                         height: 720px;}
                     @include apply-to(less-than, $width-1036, none, none, none) { }
                 }
-                div.darken-img {
-                    -webkit-filter: brightness(0.6);
-                    filter: brightness(0.6);
-                    background-size: cover;
-                    background-repeat: no-repeat; }
-                div.darken-img:first-of-type { }
-                div.center-img {
-                    background-position: center;
-                    background-size: cover; }
-                div.darken-img:last-of-type { }
+                div.center-img { opacity: 1; }
             }
             nav {
                 position:fixed;
