@@ -1,5 +1,7 @@
 $(function () { 
     
+    var clicked = false;
+    
     enquire.register('screen and (min-width: 1366px)', {
         deferSetup : true, // отложим выполнение функции setup, до первого совпадения (matched) с media query
         setup : function() {
@@ -7,16 +9,84 @@ $(function () {
             // подгружаем контент аяксом (только один раз!)
         },
         match : function() {
-            console.log('enquire min-width:1366px Match');
-            $('.img-set').find('div').css({'width':''});
-            // показываем сайдбар
+            console.log('enquire min-width:1366px | WINDOW IS INCREASED!\nMatch\n');
+            var img_1st = $('.img-set').find('div:first-of-type');
+            var img_width = img_1st.css('width');
+            if (clicked) {
+                console.log('increase size, moving slides!');
+                console.log(clicked);
+                var circle = function (n,bool){
+                    console.log('Circle func is working...')
+                    if (bool == true) {
+                        console.log('bool is true');
+                        setTimeout(function(){
+                            console.log('timeout func is working...');
+                            console.log('clicked is ' + clicked);
+                            if (clicked) {
+                                console.log('stil clicked...\n');
+                            } else {
+                                console.log('No clicked! ');
+                                bool = false;
+                                console.log('bool set to false!\n');
+                            }
+                           circle(250, bool);
+                        }, n);
+                    } else {
+                        console.log('bool is false');
+                        console.log('cleaning image widths!');
+                        $('.img-set').find('div').css({'width':''});
+                        console.log('HERE we are exit from circle function!')
+                        return;
+                    }
+                }
+                circle(250, true);
+            } else {
+                console.log('increase size, not moving blocks!');
+                console.log('cleaning image widths!');
+                $('.img-set').find('div').css({'width':''});
+            }
         },
         unmatch : function() {
-            console.log('enquire min-width:1366px Unmatch');
-            $('.img-set').find('div').css({'width':''});
-            // прячем сайдбар
+            console.log('enquire min-width:1366px | WINDOW IS DECREASED!\nUnmatch\n');
+            var img_1st = $('.img-set').find('div:first-of-type');
+            var img_width = img_1st.css('width');
+            if (clicked) {
+                console.log('decrease size, moving slides!');
+                console.log(clicked);
+                var circle = function (n,bool){
+                    console.log('Circle func is working...')
+                    if (bool == true) {
+                        console.log('bool is true');
+                        setTimeout(function(){
+                            console.log('timeout func is working...');
+                            console.log('clicked is ' + clicked);
+                            if (clicked) {
+                                console.log('stil clicked...\n');
+                            } else {
+                                console.log('No clicked! ');
+                                bool = false;
+                                console.log('bool set to false!\n');
+                            }
+                           circle(250, bool);
+                        }, n);
+                    } else {
+                        console.log('bool is false');
+                        console.log('cleaning image widths!');
+                        $('.img-set').find('div').css({'width':''});
+                        console.log('HERE we are exit from circle function!')
+                        return;
+                    }
+                }
+                circle(250, true);  
+            } else {
+                console.log('decrease size, not moving blocks!');
+                console.log('cleaning image widths!');
+                $('.img-set').find('div').css({'width':''});
+            }
         }
     });
+    
+    
     enquire.register('screen and (maxwidth: 1036px)', {
         deferSetup : true, // отложим выполнение функции setup, до первого совпадения (matched) с media query
         setup : function() {
@@ -30,11 +100,10 @@ $(function () {
         }
     });
     
+   
     function changeEntry() {
         var prev_entry = $('.arrow-left');
         var next_entry = $('.arrow-right');
-        
-        var clicked = true
         
         function ajaxLoader(entry) {
             console.log('ajax loader is working with ' + entry.attr('class') + ' !');
@@ -53,10 +122,11 @@ $(function () {
         
         
         next_entry.click(function(){
-            console.log(clicked);
-            if (clicked == true) {
-                clicked = false;
-                console.log(clicked);
+            console.log('try to run Next_entry func...');
+            if (clicked == false) {
+                console.log('Clicked is ' + clicked);
+                clicked = true;
+                console.log('Setting clicked to ' + clicked);
                 
                 ajaxLoader($(this));
 
@@ -99,18 +169,21 @@ $(function () {
                     image_1st.css({'width':original_width});
                     image_set.find($('.center-img')).removeClass('center-img');
                     image_set.find($('div:nth-of-type(3)')).addClass('center-img');
-                    clicked = true;
+                    clicked = false;
+                    console.log('---- Clicked set back to ' + clicked);
                 });
+            } else {
+                console.log("Can't click multiple times!");
             }
-            console.log(clicked);
         });
         
        
         prev_entry.click(function(){
-            console.log(clicked);
-            if (clicked == true) {
-                clicked = false;
-                console.log(clicked);
+            console.log('try to run Prev_entry func...');
+            if (clicked == false) {
+                console.log('Clicked is ' + clicked);
+                clicked = true;
+                console.log('Setting clicked to ' + clicked);
                 
                 ajaxLoader($(this));
 
@@ -155,9 +228,12 @@ $(function () {
                 },2000, function(){
                     image_set.find($('.center-img')).removeClass('center-img');
                     image_set.find($('div:nth-of-type(3)')).addClass('center-img');
-                    clicked = true;
+                    clicked = false;
+                    console.log('---- Clicked set back to ' + clicked);
                 });
-            } 
+            } else {
+                console.log("Can't click multiple times!");
+            }
         });
     }
     changeEntry();
