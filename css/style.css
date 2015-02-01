@@ -248,6 +248,7 @@
     .col-fix-300 {
       float: left;
       width: 100%;
+      box-sizing: border-box;
       padding-left: 10px; } }
 
 .col-fix-130 {
