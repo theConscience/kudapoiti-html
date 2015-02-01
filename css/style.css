@@ -231,6 +231,7 @@
   padding-left: 5px; }
   @media only screen and (max-width: 1036px) {
     .col-fix-300 {
+      padding-left: 10px;
       box-sizing: border-box;
       width: 100%; } }
 
@@ -239,6 +240,7 @@
   padding-right: 5px; }
   @media only screen and (max-width: 1036px) {
     .col-fix-130 {
+      padding-right: 10px;
       box-sizing: border-box;
       width: 100%; } }
 

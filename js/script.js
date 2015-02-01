@@ -5,13 +5,11 @@ $(function () {
     enquire.register('screen and (min-width: 1366px)', {
         deferSetup : true, // отложим выполнение функции setup, до первого совпадения (matched) с media query
         setup : function() {
-            console.log('enquire min-width:1366px Setup');
+            console.log('!!!Enquire min-width:1366px Setup');
             // подгружаем контент аяксом (только один раз!)
         },
         match : function() {
-            console.log('enquire min-width:1366px | WINDOW IS INCREASED!\nMatch\n');
-            var img_1st = $('.img-set').find('div:first-of-type');
-            var img_width = img_1st.css('width');
+            console.log('!!!Enquire min-width:1366px | WINDOW IS INCREASED!\nMatch\n');
             if (clicked) {
                 console.log('increase size, moving slides!');
                 console.log(clicked);
@@ -47,9 +45,7 @@ $(function () {
             }
         },
         unmatch : function() {
-            console.log('enquire min-width:1366px | WINDOW IS DECREASED!\nUnmatch\n');
-            var img_1st = $('.img-set').find('div:first-of-type');
-            var img_width = img_1st.css('width');
+            console.log('!!!Enquire min-width:1366px | WINDOW IS DECREASED!\nUnmatch\n');
             if (clicked) {
                 console.log('decrease size, moving slides!');
                 console.log(clicked);
@@ -87,16 +83,22 @@ $(function () {
     });
     
     
-    enquire.register('screen and (maxwidth: 1036px)', {
+    enquire.register('screen and (max-width: 1036px)', {
         deferSetup : true, // отложим выполнение функции setup, до первого совпадения (matched) с media query
         setup : function() {
-            // подгружаем контент аяксом (только один раз!)
+            console.log('!!!Enquire max-width:1036px Setup');
         },
         match : function() {
-            // показываем сайдбар
+            console.log('!!!Enquire max-width:1036px | Match\n');
+            var main_column_set = $('.lay-center-wrap>.column-set');
+            var banner = main_column_set.find('.col-fix-130');
+            main_column_set.prepend(banner);
         },
         unmatch : function() {
-            // прячем сайдбар
+            console.log('!!!Enquire max-width:1036px | Unmatch\n');
+            var main_column_set = $('.lay-center-wrap>.column-set');
+            var banner = main_column_set.find('.col-fix-130');
+            main_column_set.append(banner);
         }
     });
     
@@ -108,17 +110,6 @@ $(function () {
         function ajaxLoader(entry) {
             console.log('ajax loader is working with ' + entry.attr('class') + ' !');
         }
-        
-        /*
-        function safeTransition(object, type) {
-            console.log('safe transition is working on "' + object.attr('class') + '" with "' + type + '" argument');
-            if (type == 'add') {
-                object.addClass('transitable'); 
-            } else if (type == 'remove') {
-               object.removeClass('transitable');  
-            }
-        }
-        */
         
         
         next_entry.click(function(){
