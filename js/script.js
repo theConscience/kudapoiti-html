@@ -93,12 +93,16 @@ $(function () {
             var main_column_set = $('.lay-center-wrap>.column-set');
             var banner = main_column_set.find('.col-fix-130');
             main_column_set.prepend(banner);
+            main_column_set.find('.col-540').wrapAll( "<div class='marginwrap' />")
         },
         unmatch : function() {
             console.log('!!!Enquire max-width:1036px | Unmatch\n');
             var main_column_set = $('.lay-center-wrap>.column-set');
+            var content = $('.col-540');
             var banner = main_column_set.find('.col-fix-130');
-            main_column_set.append(banner);
+            content.unwrap();
+            banner.insertAfter(content);
+            
         }
     });
     

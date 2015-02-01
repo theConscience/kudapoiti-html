@@ -166,6 +166,7 @@ $smallest: 500px;
 		clear: both; }
 }
 .column-set {
+    /*
     &.max-1340 {
         width: 1000px;
         margin-right: -570px;
@@ -177,6 +178,7 @@ $smallest: 500px;
             max-width: 100%;
             margin-right: 0;}
     }
+    */
 }
 
 .lay-center-wrap,
@@ -267,7 +269,16 @@ $smallest: 500px;
         width: auto;
         max-width: 740px; }
     @include apply-to(less-than, $width-1036, none, none, none) {
-        width: 100%; }
+        width: auto;
+        position: relative;
+        margin-right: 320px;
+        max-width: 680px; }
+    @include apply-to(less-than, $big, none, none, none) {
+        width: 100%;
+        position: inherit;
+        margin-right: 0;
+        max-width: inherit;
+        }
     list-style-type: none;
 	box-sizing: border-box;
     padding-left: 10px;
@@ -286,9 +297,12 @@ $smallest: 500px;
     width: 300px;
     padding-left: 5px; 
     @include apply-to(less-than, $width-1036, none, none, none) {
-        padding-left: 10px; 
-        box-sizing: border-box;
-        width: 100%; }
+        float: right;
+        padding-left: 10px; }
+    @include apply-to(less-than, $big, none, none, none) {
+        float:left;
+        width: 100%;
+        padding-left: 10px; }
 }
 .col-fix-130 {
     width: 130px;
@@ -297,6 +311,15 @@ $smallest: 500px;
         padding-right: 10px; 
         box-sizing: border-box;
         width: 100%; }
+}
+.marginwrap {
+    float:left;
+    width: 100%;
+    margin-right: -320px;
+    &:after {
+        content: "";
+        display: block;
+        clear: both; }
 }
 
 /*--------------- base elements styles ---------------*/

@@ -94,18 +94,20 @@
     display: block;
     clear: both; }
 
-.column-set.max-1340 {
-  width: 1000px;
-  margin-right: -570px; }
-  @media only screen and (min-width: 1367px) {
-    .column-set.max-1340 {
-      max-width: 1340px;
-      margin-right: -460px; } }
-  @media only screen and (max-width: 1036px) {
-    .column-set.max-1340 {
-      width: 100%;
-      max-width: 100%;
-      margin-right: 0; } }
+.column-set {
+  /*
+  &.max-1340 {
+      width: 1000px;
+      margin-right: -570px;
+      @include apply-to(greater-than, $width-1367, none, none, none) {
+          max-width: 1340px;
+          margin-right: -460px;}
+      @include apply-to(less-than, $width-1036, none, none, none) {
+          width: 100%;
+          max-width: 100%;
+          margin-right: 0;}
+  }
+  */ }
 
 .lay-center-wrap,
 .column-set,
@@ -215,7 +217,16 @@
       max-width: 740px; } }
   @media only screen and (max-width: 1036px) {
     .col-540 {
-      width: 100%; } }
+      width: auto;
+      position: relative;
+      margin-right: 320px;
+      max-width: 680px; } }
+  @media only screen and (max-width: 800px) {
+    .col-540 {
+      width: 100%;
+      position: inherit;
+      margin-right: 0;
+      max-width: inherit; } }
 
 .col-fix-130,
 .col-fix-300 {
@@ -231,9 +242,13 @@
   padding-left: 5px; }
   @media only screen and (max-width: 1036px) {
     .col-fix-300 {
-      padding-left: 10px;
-      box-sizing: border-box;
-      width: 100%; } }
+      float: right;
+      padding-left: 10px; } }
+  @media only screen and (max-width: 800px) {
+    .col-fix-300 {
+      float: left;
+      width: 100%;
+      padding-left: 10px; } }
 
 .col-fix-130 {
   width: 130px;
@@ -243,6 +258,15 @@
       padding-right: 10px;
       box-sizing: border-box;
       width: 100%; } }
+
+.marginwrap {
+  float: left;
+  width: 100%;
+  margin-right: -320px; }
+  .marginwrap:after {
+    content: "";
+    display: block;
+    clear: both; }
 
 /*--------------- base elements styles ---------------*/
 html > body {
